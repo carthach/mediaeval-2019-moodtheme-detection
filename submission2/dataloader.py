@@ -75,7 +75,7 @@ class AudioFolder(data.Dataset):
                 all_dict['TAGS'].append(line[5:])
 
         self.paths = all_dict['PATH']
-        self.tags = [[self.labels_to_idx[j] for j in i] for i in all_dict['TAGS']]
+        self.tags = [[self.labels_to_idx[j] for j in i if j in self.labels_to_idx.keys()] for i in all_dict['TAGS']]
 
 
 
