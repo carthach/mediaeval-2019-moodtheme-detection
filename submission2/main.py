@@ -5,9 +5,9 @@ from dataloader import get_audio_loader
 from solver import Solver
 
 # Set paths
-PATH = '../data'
-DATA_PATH = f'{PATH}/mediaeval-2019-jamendo/'
-LABELS_TXT = f'{PATH}/moodtheme_split.txt'
+PATH = '../../mtg-jamendo-dataset/data/splits/split-1'
+DATA_PATH = '../../npy'
+LABELS_TXT = f'../../mtg-jamendo-dataset/data/tags/moodtheme.txt'
 TRAIN_PATH = f'{PATH}/autotagging_moodtheme-train.tsv'
 VAL_PATH = f'{PATH}/autotagging_moodtheme-validation.tsv'
 TEST_PATH = f'{PATH}/autotagging_moodtheme-test.tsv'

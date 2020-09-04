@@ -22,14 +22,14 @@ class Solver():
         self.valid_loader = valid_loader
 
         # Training settings
-        self.n_epochs = 120
+        self.n_epochs = 2
         self.lr = 1e-4
         self.log_step = 100
         self.is_cuda = torch.cuda.is_available()
         self.model_save_path = config['log_dir']
         self.batch_size = config['batch_size']
         self.tag_list = tag_list
-        self.num_class = 56
+        self.num_class = 8
         self.writer = SummaryWriter(config['log_dir'])
         self.model_fn = os.path.join(self.model_save_path, 'best_model.pth')
 

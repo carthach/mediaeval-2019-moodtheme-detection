@@ -21,7 +21,7 @@ def get_spectogram(full_spect, size=1400):
     return audio
 
 class AudioFolder(data.Dataset):
-    def __init__(self, root, tsv_path, labels_to_idx, num_classes=56, spect_len=4096, train=True):
+    def __init__(self, root, tsv_path, labels_to_idx, num_classes=8, spect_len=4096, train=True):
         self.train = train
         self.root = root
         self.num_classes = num_classes
@@ -80,7 +80,7 @@ class AudioFolder(data.Dataset):
 
 
 def get_audio_loader(root, tsv_path, labels_to_idx, batch_size=16, num_workers=4, shuffle=True, drop_last=True):
-    data_loader = data.DataLoader(dataset=AudioFolder(root, tsv_path, labels_to_idx, num_classes=56, train=True),
+    data_loader = data.DataLoader(dataset=AudioFolder(root, tsv_path, labels_to_idx, num_classes=8, train=True),
                                   batch_size=batch_size,
                                   shuffle=shuffle,
                                   num_workers=num_workers,
