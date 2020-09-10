@@ -40,9 +40,9 @@ class Solver():
         # model and optimizer
         model = MusicSelfAttModel()
 
+        self.model = model
         if self.is_cuda:
-            self.model = model
-            self.model.cuda()
+            self.model.cuda()		
         self.optimizer = torch.optim.Adam(self.model.parameters(), self.lr)
 
     def load(self, filename):

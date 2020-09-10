@@ -9,7 +9,10 @@ HIDDEN_SIZE = 256
 class MusicSelfAttModel(nn.Module):
     def __init__(self):
         super(MusicSelfAttModel, self).__init__()
-        self.mirex = MobileNetV2(8).cuda()
+		if self.is_cuda:
+        	self.mirex = MobileNetV2(8).cuda()
+		else:
+			self.mirex = MobileNetV2(8)
         self.att_model = nn.Sequential(
             AttentionModule(),
             nn.Dropout(0.2),
