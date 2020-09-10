@@ -41,7 +41,7 @@ class Solver():
         model = MusicSelfAttModel()
 
         self.model = model
-        if self.is_cuda:
+        if torch.cuda.is_available():
             self.model.cuda()		
         self.optimizer = torch.optim.Adam(self.model.parameters(), self.lr)
 
