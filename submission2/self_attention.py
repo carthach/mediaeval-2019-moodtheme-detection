@@ -12,7 +12,7 @@ intermediate_size = 256*4
 num_attention_heads = 4
 attention_probs_dropout_prob = 0.1
 hidden_dropout_prob = 0.2
-num_classes = 56
+num_classes = 8
 
 
 def gelu(x):
