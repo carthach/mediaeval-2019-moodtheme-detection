@@ -5,6 +5,8 @@ import numpy as np
 import torch
 import torch.nn as nn
 
+from config import CONFIG
+
 hidden_size = 256
 max_position_embeddings = 16
 num_hidden_layers = 2
@@ -12,7 +14,7 @@ intermediate_size = 256*4
 num_attention_heads = 4
 attention_probs_dropout_prob = 0.1
 hidden_dropout_prob = 0.2
-num_classes = 8
+num_classes = CONFIG['num_classes']
 
 
 def gelu(x):

@@ -14,6 +14,8 @@ from torch.utils.tensorboard import SummaryWriter
 
 from model import MusicSelfAttModel
 
+from config import CONFIG
+
 class Solver():
     def __init__(self, data_loader1, data_loader2, valid_loader, tag_list, config):
         # Data loader
@@ -22,14 +24,14 @@ class Solver():
         self.valid_loader = valid_loader
 
         # Training settings
-        self.n_epochs = 2
+        self.n_epochs = 120
         self.lr = 1e-4
         self.log_step = 100
         self.is_cuda = torch.cuda.is_available()
         self.model_save_path = config['log_dir']
         self.batch_size = config['batch_size']
         self.tag_list = tag_list
-        self.num_class = 8
+        self.num_class = CONFIG['num_classes']
         self.writer = SummaryWriter(config['log_dir'])
         self.model_fn = os.path.join(self.model_save_path, 'best_model.pth')
 

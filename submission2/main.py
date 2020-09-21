@@ -3,19 +3,13 @@ import numpy as np
 
 from dataloader import get_audio_loader
 from solver import Solver
+from config import CONFIG, DATA_PATH, META_PATH, SPLIT_PATH
 
 # Set paths
-PATH = '../../mtg-jamendo-dataset/data/splits/split-1'
-DATA_PATH = '../../npy'
-LABELS_TXT = f'../../mtg-jamendo-dataset/data/tags/moodtheme.txt'
-TRAIN_PATH = f'{PATH}/autotagging_moodtheme-train.tsv'
-VAL_PATH = f'{PATH}/autotagging_moodtheme-validation.tsv'
-TEST_PATH = f'{PATH}/autotagging_moodtheme-test.tsv'
-
-CONFIG = {
-        'log_dir': './output',
-        'batch_size': 8
-    }
+LABELS_TXT = f'{META_PATH}/data/tags/moodtheme.txt'
+TRAIN_PATH = f'{SPLIT_PATH}/autotagging_moodtheme-train.tsv'
+VAL_PATH = f'{SPLIT_PATH}/autotagging_moodtheme-validation.tsv'
+TEST_PATH = f'{SPLIT_PATH}/autotagging_moodtheme-test.tsv'
 
 def get_labels_to_idx(labels_txt):
     labels_to_idx = {}

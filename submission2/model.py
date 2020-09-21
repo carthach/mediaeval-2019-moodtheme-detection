@@ -2,17 +2,18 @@ import torch
 import torch.nn as nn
 import torchvision
 from self_attention import AttentionModule
+from config import CONFIG
 
-NUM_CLASSES=8
+NUM_CLASSES=CONFIG["num_classes"]
 HIDDEN_SIZE = 256
 
 class MusicSelfAttModel(nn.Module):
     def __init__(self):
         super(MusicSelfAttModel, self).__init__()
         if torch.cuda.is_available():
-            self.mirex = MobileNetV2(8).cuda()
+            self.mirex = MobileNetV2(NUM_CLASSES).cuda()
         else:
-            self.mirex = MobileNetV2(8)
+            self.mirex = MobileNetV2(NUM_CLASSES)
         self.att_model = nn.Sequential(
             AttentionModule(),
             nn.Dropout(0.2),
@@ -36,7 +37,7 @@ class MusicSelfAttModel(nn.Module):
         att = self.att_model(att)
         clf = x.view(-1,256)
         clf = self.classifier(clf)
-        clf = clf.view(-1,16,8)
+        clf = clf.view(-1,16, NUM_CLASSES)
         clf = clf.mean(dim=1)
 
         return att,clf
